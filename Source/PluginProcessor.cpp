@@ -7,9 +7,10 @@
 
   ==============================================================================
 */
+#include <JuceHeader.h>
 
 #include "PluginProcessor.h"
-#include "PluginEditor.h"
+//#include "PluginEditor.h"
 #include "FractionalDelay.h"
 
 //==============================================================================
@@ -23,9 +24,9 @@ FlangerAudioProcessor::~FlangerAudioProcessor()
 }
 
 //==============================================================================
-const String FlangerAudioProcessor::getName() const
+const juce::String FlangerAudioProcessor::getName() const
 {
-    return JucePlugin_Name;
+    return juce::String("Flanger");
 }
 
 bool FlangerAudioProcessor::acceptsMidi() const
@@ -66,12 +67,12 @@ void FlangerAudioProcessor::setCurrentProgram (int index)
 {
 }
 
-const String FlangerAudioProcessor::getProgramName (int index)
+const juce::String FlangerAudioProcessor::getProgramName (int index)
 {
-    return String();
+    return juce::String();
 }
 
-void FlangerAudioProcessor::changeProgramName (int index, const String& newName)
+void FlangerAudioProcessor::changeProgramName (int index, const juce::String& newName)
 {
 }
 
@@ -97,7 +98,7 @@ void FlangerAudioProcessor::releaseResources()
 }
 
 #ifndef JucePlugin_PreferredChannelConfigurations
-bool FlangerAudioProcessor::setPreferredBusArrangement (bool isInput, int bus, const AudioChannelSet& preferredSet)
+bool FlangerAudioProcessor::setPreferredBusArrangement (bool isInput, int bus, const juce::AudioChannelSet& preferredSet)
 {
     // Reject any bus arrangements that are not compatible with your plugin
 
@@ -121,7 +122,7 @@ bool FlangerAudioProcessor::setPreferredBusArrangement (bool isInput, int bus, c
 }
 #endif
 
-void FlangerAudioProcessor::processBlock (AudioSampleBuffer& buffer, MidiBuffer& midiMessages)
+void FlangerAudioProcessor::processBlock (juce::AudioSampleBuffer& buffer, juce::MidiBuffer& midiMessages)
 {
     const int totalNumInputChannels  = getTotalNumInputChannels();
     const int totalNumOutputChannels = getTotalNumOutputChannels();
@@ -173,13 +174,14 @@ bool FlangerAudioProcessor::hasEditor() const
     return true; // (change this to false if you choose to not supply an editor)
 }
 
-AudioProcessorEditor* FlangerAudioProcessor::createEditor()
+juce::AudioProcessorEditor* FlangerAudioProcessor::createEditor()
 {
-    return new FlangerAudioProcessorEditor (*this);
+    //return new FlangerAudioProcessorEditor (*this);
+    return nullptr;
 }
 
 //==============================================================================
-void FlangerAudioProcessor::getStateInformation (MemoryBlock& destData)
+void FlangerAudioProcessor::getStateInformation (juce::MemoryBlock& destData)
 {
     // You should use this method to store your parameters in the memory block.
     // You could do that either as raw data, or use the XML or ValueTree classes
@@ -194,7 +196,7 @@ void FlangerAudioProcessor::setStateInformation (const void* data, int sizeInByt
 
 //==============================================================================
 // This creates new instances of the plugin..
-AudioProcessor* JUCE_CALLTYPE createPluginFilter()
+/*juce::AudioProcessor* JUCE_CALLTYPE createPluginFilter()
 {
     return new FlangerAudioProcessor();
-}
+}*/

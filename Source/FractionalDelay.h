@@ -11,7 +11,7 @@
 #ifndef FRACTIONALDELAY_H_INCLUDED
 #define FRACTIONALDELAY_H_INCLUDED
 
-#include "../JuceLibraryCode/JuceHeader.h"
+#include <JuceHeader.h>
 
 
 class FractionalDelay

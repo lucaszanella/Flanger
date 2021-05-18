@@ -42,7 +42,7 @@ float ToneGenerator::getValue()
 
 float ToneGenerator::sineWave()
 {
-    float delta = (kFrequency / kSR) * 2 * double_Pi;
+    float delta = (kFrequency / kSR) * 2 * juce::double_Pi;
     currentAngle += delta;
     output = std::sin(currentAngle);
     return output;

@@ -11,7 +11,7 @@
 #ifndef TONEGENERATOR_H_INCLUDED
 #define TONEGENERATOR_H_INCLUDED
 
-#include "../JuceLibraryCode/JuceHeader.h"
+#include <JuceHeader.h>
 
 class ToneGenerator
 {
